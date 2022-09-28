@@ -454,7 +454,8 @@ rhat_basic(bb_sim_samples$draws(variables = "pi"))
 ```{r}
 bb_sim_samples |>
   gather_draws(pi) |> 
-  ggplot(aes(x = .iteration, y = .value, group = .chain)) +
+  ggplot(aes(x = .iteration, y = .value, group = .chain,
+             color = factor(.chain))) +
   geom_line(size = 0.1) +
   labs(color = "Chain")
 ```
